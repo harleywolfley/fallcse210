@@ -1,4 +1,5 @@
 using System;
+using System.IO; 
 
 class Program
 {
@@ -8,6 +9,8 @@ class Program
 
         Journal myJournal = new Journal();
 
+        string filename = "myFile.txt";
+
         int response = 0;
 
         while(response != 5)
@@ -16,20 +19,28 @@ class Program
             switch (response)
             {
                 case 1:
-                    Console.WriteLine("Create");
                     myJournal.CreateJournalEntry();
                     break;
                 case 2:
-                    Console.WriteLine("Display");
                     myJournal.DisplayJournal();
                     break;
                 case 3:
-                    Console.WriteLine("Read");
-                    //call read
+                    Console.Write("Where should these entries be saved to? \n> ");
+                    filename = Console.ReadLine();
+                    
+                    string[] lines = System.IO.File.ReadAllLines(filename);
+                    foreach (string line in lines)
+                    {
+                        string[] parts = line.Split("||");
+                        Console.WriteLine(parts[0]);
+                        Console.WriteLine(parts[1]);
+                    }
                     break;
                 case 4:
-                    Console.WriteLine("Write");
-                    //call write
+                    using (StreamWriter outputFile = new StreamWriter(filename))
+                    {
+                        outputFile.WriteLine($"{myJournal}");
+                    }
                     break;
             }
         }

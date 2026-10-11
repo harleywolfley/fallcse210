@@ -15,7 +15,7 @@ class Entry
     public void CreateEntry()
     {
         _date = DateTime.Now.ToString();
-        _prompt = "How was your day?"; /* update to list of random prompts */
+        _prompt =  RandomPrompt.SelectPrompt();
         Console.Write($"{_prompt}: ");
         _response = Console.ReadLine();
     }

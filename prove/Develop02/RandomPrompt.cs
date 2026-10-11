@@ -2,10 +2,16 @@ using System.Data;
 
 class RandomPrompt
 {
-    string one = "How was your day? ";
-    string two = "What was the highlight of your day?";
-    string three = "What was exciting? ";
+    public static string SelectPrompt()
+    {
+        Random random = new Random();
 
-    string[] allPrompts =
+        string[] allPrompts = {"How was your day? ", "What was the highlight of your day?", "What was exciting? "};
+
+        string selectedPrompt = random.GetItems(allPrompts, 1)[0];
+
+        return selectedPrompt;
+      
+    }
     
 }
