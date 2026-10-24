@@ -27,7 +27,7 @@ class Word
         string returnstring = "";
         if(_hidden)
         {
-            for(int i=0; i < _word.Length; i++)
+            foreach(char c in _word)
             {
                 returnstring += '_';
             }
@@ -41,6 +41,6 @@ class Word
 
     public void Display()
     {
-        Console.Write($"{GetWordString()}");
+        Console.Write($"{GetWordString()} ");
     }
 }
