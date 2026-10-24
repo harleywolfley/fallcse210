@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
 
-        Scripture myScripture = new Scripture("Moses", 2, 5, "Behold this is my work and my glory.");
+        Scripture myScripture = new Scripture("Proverbs", 3, 5, 6, "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.");
         myScripture.ShowScripture();
         Console.WriteLine();
 
