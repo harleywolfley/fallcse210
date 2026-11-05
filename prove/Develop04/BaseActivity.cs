@@ -1,8 +1,26 @@
 class BaseActivity
 {
-    public BaseActivity () {
-        // Complete late
 
+    private int _duration;
+    private DateTime _endTime;
+
+    public BaseActivity () {
+        _duration = 30; // Replace with call to ObtainDuration() --from user. this is hardcoded
+    }
+
+    public void StartActivity()
+    {
+        // COMPLETE
+    }
+    
+    public void StartTimer()
+    {
+        _endTime = DateTime.Now.AddSeconds(_duration);
+    }
+
+    public bool HasTimerExpired()
+    {
+        return DateTime.Now > _endTime;
     }
 
     public void RunCountDownMessage(string message, int seconds)
