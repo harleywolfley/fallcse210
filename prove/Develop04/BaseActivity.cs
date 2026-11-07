@@ -1,18 +1,39 @@
+using System.ComponentModel;
+
 class BaseActivity
 {
-
-    private int _duration;
+    private string _activityName;
+    private string _description;
     private DateTime _endTime;
+    private int _duration;
 
     public BaseActivity () {
-        _duration = 30; // Replace with call to ObtainDuration() --from user. this is hardcoded
+        ObtainDuration();
     }
 
-    public void StartActivity()
+    public int ObtainDuration()
     {
-        // COMPLETE
+        Console.WriteLine("How many seconds would you like this activity to last?\n");
+        int _duration = int.Parse(Console.ReadLine());
+        return _duration;
     }
-    
+
+    public void StartActivity(string activityName, string description)
+    {
+        _activityName = activityName;
+        _description = description;
+        RunSpinnerMessage($"Welcome to the {_activityName} Activity.", 5);
+        RunSpinnerMessage($"{_description}", 10);
+        Console.Clear();
+    }
+
+    public void EndActivity()
+    {
+        RunSpinnerMessage("Well Done!", 5);
+        RunCountDownMessage("Well Done!", 5);
+        Console.Clear();
+    }
+
     public void StartTimer()
     {
         _endTime = DateTime.Now.AddSeconds(_duration);

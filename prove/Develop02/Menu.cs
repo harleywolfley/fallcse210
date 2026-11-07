@@ -18,4 +18,5 @@ class Menu
         
         return input;
     }
+    
 }
