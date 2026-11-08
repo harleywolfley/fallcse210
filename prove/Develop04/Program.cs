@@ -21,7 +21,8 @@ class Program
                     breathingActivity.RunActivity();
                     break;
                 case 2:
-                    // reflection
+                    ReflectionActivity reflectionActivity = new ReflectionActivity();
+                    reflectionActivity.RunReflectActivity();
                     break;
                 case 3:
                     ListingActivity listingActivity = new ListingActivity();

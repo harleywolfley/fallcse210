@@ -7,7 +7,7 @@ class BreathingActivity : BaseActivity
     {
         StartActivity("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
 
-        RunCountDownMessage("Get Ready", 5);
+        RunCountDownMessage("Get Ready", 3);
         StartTimer();
         while(! HasTimerExpired())
         {

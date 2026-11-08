@@ -13,24 +13,34 @@ class BaseActivity
 
     public int ObtainDuration()
     {
-        Console.WriteLine("How many seconds would you like this activity to last?\n");
-        int _duration = int.Parse(Console.ReadLine());
+        Console.Write("How many seconds would you like this activity to last?\n> ");
+        _duration = int.Parse(Console.ReadLine());
         return _duration;
+    }
+
+    private void DisplayWelcome()
+    {
+        Console.WriteLine($"Welcome to the {_activityName} Activity ");
+    }
+
+    public void DisplayDescription()
+    {
+        Console.WriteLine($"{_description}");
     }
 
     public void StartActivity(string activityName, string description)
     {
         _activityName = activityName;
         _description = description;
-        RunSpinnerMessage($"Welcome to the {_activityName} Activity.", 5);
-        RunSpinnerMessage($"{_description}", 10);
-        Console.Clear();
+        DisplayWelcome();
+        DisplayDescription();
+        RunSpinnerMessage("", 5);
     }
 
     public void EndActivity()
     {
-        RunSpinnerMessage("Well Done!", 5);
-        RunCountDownMessage("Well Done!", 5);
+        Console.Write("Well Done! ");
+        RunSpinnerMessage("", 5);
         Console.Clear();
     }
 
@@ -73,3 +83,4 @@ class BaseActivity
         Console.CursorVisible = true;
     }
 }
+

@@ -11,7 +11,7 @@ class Menu
         Console.WriteLine("2. Reflection Activity");
         Console.WriteLine("3. Listing Activity");
         Console.WriteLine("4. Quit");
-        Console.Write("Your selection: ");
+        Console.Write("> ");
         _userinput = int.Parse(Console.ReadLine());
         
         return _userinput;

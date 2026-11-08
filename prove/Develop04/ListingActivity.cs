@@ -27,12 +27,17 @@ class ListingActivity : BaseActivity
     {
         StartActivity("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
 
-        RunCountDownMessage("Get Ready", 5);
-        RunCountDownMessage(DisplayPrompt(), 10);
+        RunCountDownMessage("Get Ready", 3);
+        AddPrompts();
+        Console.Clear();
+        RunSpinnerMessage(DisplayPrompt(), 5);
+        List<string> answers = new List<string>();
         StartTimer();
         while(! HasTimerExpired())
         {
-            RunCountDownMessage("Prompt from list", 30);
+            Console.Write("> ");
+            string entry = Console.ReadLine();
+            answers.Add(entry);
         }
 
         EndActivity();
