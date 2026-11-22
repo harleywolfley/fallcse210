@@ -44,9 +44,29 @@ abstract class BaseGoal
         _points = int.Parse(Console.ReadLine());
     }
 
+    public virtual string GetSaveString()
+    {
+        return $"{_goalType}|{_name}|{_desc}|{_points}|{_complete}";
+    }
+
     public virtual string GetConsoleString()
     {
-        return $"[ ] {_name}: {_desc} - {_points}";
+        string completeString = " ";
+
+        if (_complete)
+            completeString  = "X";
+
+        return $"[{completeString}] {_name} ({_desc}) [{_points}]";
+    }
+
+    public bool IsComplete()
+    {
+        return _complete;
+    }
+
+    protected int GetPoints()
+    {
+        return _points;
     }
 
     public int MarkComplete()
