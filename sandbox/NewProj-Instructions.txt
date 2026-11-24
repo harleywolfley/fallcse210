@@ -1,0 +1,6 @@
+Ctrl+Shift+P
+.NET: New Project
+Console App
+(Choose Name)
+Check Location
+Create
